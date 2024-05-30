@@ -1,0 +1,23 @@
+<div class="container">
+  <h2>List of Authors</h2>
+  <button class="btn btn-primary mb-3" (click)="addAuthor()">Add New Author</button>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>firstName</th>
+        <th>lastName</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let author of authors">
+        <td>{{ author.firstName }}</td>
+        <td>{{ author.lastName }}</td>
+        <td>
+          <button class="btn btn-sm btn-info mr-2" (click)="editAuthor(author.id)">Edit</button>
+          <button class="btn btn-sm btn-danger" (click)="deletAuthor(author.id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

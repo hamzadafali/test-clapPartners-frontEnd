@@ -1,0 +1,17 @@
+<div class="container">
+    <h2>{{ isEditMode ? 'Edit Author' : 'Add Author' }}</h2>
+    <form #auteurForm="ngForm" (ngSubmit)="saveAuthor()">
+      <div>
+        <label for="nom">Name:</label>
+        <input id="nom" name="nom" [(ngModel)]="author.firstName" required>
+      </div>
+      <div>
+        <label for="prenom">First Name:</label>
+        <input id="prenom" name="prenom" [(ngModel)]="author.lastName" required>
+      </div>
+      <button type="submit" [disabled]="!auteurForm.valid">
+        {{ isEditMode ? 'Save' : 'Add' }}
+      </button>
+      <button type="button" (click)="cancel()">Cancel</button>
+    </form>
+  </div>

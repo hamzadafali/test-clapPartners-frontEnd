@@ -1,0 +1,25 @@
+<div class="container">
+    <h2>{{ isEditMode ? 'Edit Book' : 'Add Book' }}</h2>
+    <form #livreForm="ngForm" (ngSubmit)="saveBook()">
+      <div>
+        <label for="titre">Title:</label>
+        <input id="titre" name="titre" [(ngModel)]="book.title" required>
+      </div>
+      <div>
+        <label for="prix">Price:</label>
+        <input id="prix" name="prix" [(ngModel)]="book.price" required>
+      </div>
+      <div>
+        <label for="datePublication">Publication Date:</label>
+        <input id="datePublication" type="date" name="datePublication" [(ngModel)]="book.dateOfPublication" required>
+      </div>
+      <div>
+        <label for="auteurId">Author ID:</label>
+        <input id="auteurId" name="auteurId" [(ngModel)]="book.auteurId" required>
+      </div>
+      <button type="submit" [disabled]="!livreForm.valid">
+        {{ isEditMode ? 'Save' : 'Add' }}
+      </button>
+      <button type="button" (click)="cancel()">Cancel</button>
+    </form>
+  </div>
